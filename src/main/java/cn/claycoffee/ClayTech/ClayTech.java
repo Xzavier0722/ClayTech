@@ -382,7 +382,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
 
     @Override
     public String getBugTrackerURL() {
-        return "https://github.com/ClayCoffee/ClayTech/issues";
+        return "https://github.com/Xzavier0722/ClayTech/issues";
     }
 
     private void registerPlanets() {

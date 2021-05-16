@@ -29,7 +29,7 @@ public class ClayTechUpdater {
             @Override
             public void run() {
                 try {
-                    URL url = new URL("https://api.github.com/repos/ClayCoffee/ClayTech/releases");
+                    URL url = new URL("https://api.github.com/repos/Xzavier0722/ClayTech/releases");
                     InputStream in = url.openStream();
                     BufferedReader bf = new BufferedReader(new InputStreamReader(in));
                     JsonArray ja = new JsonParser().parse(bf.readLine()).getAsJsonArray();
