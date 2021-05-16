@@ -1,6 +1,6 @@
 package cn.claycoffee.ClayTech.utils;
 
-import me.mrCookieSlime.Slimefun.api.Slimefun;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -10,7 +10,7 @@ public class Affect {
     public static void AffectCheck(Player d, Player e) {
         if (d.getInventory().getItemInMainHand() != null) {
             ItemStack HandItem = d.getInventory().getItemInMainHand();
-            if (Slimefun.hasUnlocked(d, HandItem, true)) {
+            if (SlimefunUtils.canPlayerUseItem(d, HandItem, true)) {
                 try {
                     if (Utils.ExitsInList(Lang.readGeneralText("Blind_5_effect"), Utils.getLore(HandItem))) {
                         e.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 4));
@@ -29,11 +29,11 @@ public class Affect {
             }
         }
         if (e.getInventory().getBoots() != null) {
-            if (Slimefun.hasUnlocked(e, e.getInventory().getBoots(), true)) {
+            if (SlimefunUtils.canPlayerUseItem(e, e.getInventory().getBoots(), true)) {
                 try {
                     if (Utils.ExitsInList(Lang.readGeneralText("Anti_Slowness_3_effect"),
                             Utils.getLore(e.getInventory().getBoots()))
-                            && Slimefun.hasUnlocked(e, e.getInventory().getBoots(), true)) {
+                            && SlimefunUtils.canPlayerUseItem(e, e.getInventory().getBoots(), true)) {
                         d.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 40, 2));
                     }
                 } catch (NullPointerException err2) {

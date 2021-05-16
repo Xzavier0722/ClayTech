@@ -5,6 +5,7 @@ import cn.claycoffee.ClayTech.api.events.PlayerAssembleEvent;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
@@ -25,6 +26,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -57,27 +59,30 @@ public abstract class ARocketTable extends SlimefunItem implements InventoryBloc
 
         createPreset(this, getInventoryTitle(), this::SetupMenu);
 
-        registerBlockHandler(id, (p, b, tool, reason) -> {
-            BlockMenu inv = BlockStorage.getInventory(b);
-            if (inv != null) {
-                for (int slot : getInputSlots()) {
-                    if (inv.getItemInSlot(slot) != null) {
-                        b.getWorld().dropItemNaturally(b.getLocation(), inv.getItemInSlot(slot));
-                        inv.replaceExistingItem(slot, null);
+        addItemHandler(new BlockBreakHandler(false,true) {
+            @Override
+            public void onPlayerBreak(BlockBreakEvent e, ItemStack itemStack, List<ItemStack> drop) {
+                Block b = e.getBlock();
+                BlockMenu inv = BlockStorage.getInventory(b);
+                if (inv != null) {
+                    for (int slot : getInputSlots()) {
+                        ItemStack itemInSlot = inv.getItemInSlot(slot);
+                        if (itemInSlot != null && itemStack.getType()!=Material.BEDROCK) {
+                            drop.add(itemInSlot);
+                        }
+                    }
+
+                    for (int slot : getOutputSlots()) {
+                        ItemStack itemInSlot = inv.getItemInSlot(slot);
+                        if (itemInSlot != null) {
+                            drop.add(itemInSlot);
+                        }
                     }
                 }
 
-                for (int slot : getOutputSlots()) {
-                    if (inv.getItemInSlot(slot) != null) {
-                        b.getWorld().dropItemNaturally(b.getLocation(), inv.getItemInSlot(slot));
-                        inv.replaceExistingItem(slot, null);
-                    }
-                }
+                progress.remove(b);
+                processing.remove(b);
             }
-
-            progress.remove(b);
-            processing.remove(b);
-            return true;
         });
 
         this.registerDefaultRecipes();

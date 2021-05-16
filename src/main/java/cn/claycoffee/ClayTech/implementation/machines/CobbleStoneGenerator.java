@@ -3,6 +3,7 @@ package cn.claycoffee.ClayTech.implementation.machines;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -21,6 +22,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -49,29 +51,30 @@ public class CobbleStoneGenerator extends SlimefunItem implements InventoryBlock
 
         createPreset(this, getInventoryTitle(), this::SetupMenu);
 
-        registerBlockHandler(id, (p, b, tool, reason) -> {
-            BlockMenu inv = BlockStorage.getInventory(b);
-            if (inv != null) {
-                for (int slot : getInputSlots()) {
-                    if (inv.getItemInSlot(slot) != null) {
-                        if (inv.getItemInSlot(slot).getType() != Material.BEDROCK) {
-                            b.getWorld().dropItemNaturally(b.getLocation(), inv.getItemInSlot(slot));
-                            inv.replaceExistingItem(slot, null);
+        addItemHandler(new BlockBreakHandler(false,true) {
+            @Override
+            public void onPlayerBreak(BlockBreakEvent e, ItemStack itemStack, List<ItemStack> drop) {
+                Block b = e.getBlock();
+                BlockMenu inv = BlockStorage.getInventory(b);
+                if (inv != null) {
+                    for (int slot : getInputSlots()) {
+                        ItemStack itemInSlot = inv.getItemInSlot(slot);
+                        if (itemInSlot != null && itemStack.getType()!=Material.BEDROCK) {
+                            drop.add(itemInSlot);
+                        }
+                    }
+
+                    for (int slot : getOutputSlots()) {
+                        ItemStack itemInSlot = inv.getItemInSlot(slot);
+                        if (itemInSlot != null) {
+                            drop.add(itemInSlot);
                         }
                     }
                 }
 
-                for (int slot : getOutputSlots()) {
-                    if (inv.getItemInSlot(slot) != null) {
-                        b.getWorld().dropItemNaturally(b.getLocation(), inv.getItemInSlot(slot));
-                        inv.replaceExistingItem(slot, null);
-                    }
-                }
+                progress.remove(b);
+                processing.remove(b);
             }
-
-            progress.remove(b);
-            processing.remove(b);
-            return true;
         });
     }
 

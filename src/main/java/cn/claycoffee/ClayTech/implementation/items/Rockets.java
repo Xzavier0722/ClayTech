@@ -7,11 +7,11 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import io.github.thebusybiscuit.slimefun4.core.researching.Research;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.handlers.ItemHandler;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.Slimefun;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -56,11 +56,11 @@ public class Rockets {
                         if (BlockStorage.checkID(b) != null) {
                             if (BlockStorage.checkID(b).equalsIgnoreCase("ROCKET_LAUNCHER")) {
                                 if (e.hasItem()) {
-                                    if (!Slimefun.hasUnlocked(e.getPlayer(), e.getItem(), true)) {
+                                    if (!SlimefunUtils.canPlayerUseItem(e.getPlayer(), e.getItem(), true)) {
                                         return;
                                     }
                                 }
-                                if (!Slimefun.hasUnlocked(e.getPlayer(), ClayTechItems.ROCKET_LAUNCHER, true)) {
+                                if (!SlimefunUtils.canPlayerUseItem(e.getPlayer(), ClayTechItems.ROCKET_LAUNCHER, true)) {
                                     return;
                                 }
                                 Map<String, String> jbj = StrUtils.parseJSON(BlockStorage.getBlockInfoAsJson(b));
