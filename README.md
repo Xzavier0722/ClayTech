@@ -1,7 +1,8 @@
+This is an unofficial fork of [ClayTech](https://github.com/ClayCoffee/ClayTech). As the original author semi-abandoned this project, this fork target to keep maintenance.
+
 # ClayTech
 一个我的世界粘液科技插件.  
-A slimefun addon for minecraft.   
-Build Status: ![avatar](https://thebusybiscuit.github.io/builds/ClayCoffee/ClayTech/master/badge.svg)
+A slimefun addon for minecraft.
 
 # 温馨提醒 / Tips
 You can join our discord server here: [Click this](https://discord.gg/sbNKCCs)
