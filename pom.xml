@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.2-R0.1-SNAPSHOT</version>
+            <version>1.16.5-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.github.TheBusyBiscuit</groupId>
             <artifactId>Slimefun4</artifactId>
-            <version>master-SNAPSHOT</version>
+            <version>RC-23</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -62,13 +62,6 @@
                     <artifactId>bstats-bukkit</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jdt</groupId>
-            <artifactId>Anotation</artifactId>
-            <version>2.2.400</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/org.eclipse.jdt.annotation_2.2.400.v20191120-1313.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.wimbli</groupId>
