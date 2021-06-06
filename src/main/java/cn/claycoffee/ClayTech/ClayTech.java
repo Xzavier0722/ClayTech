@@ -345,9 +345,9 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
     }
 
     private void registerSlimefun() {
-        new Machines();
 
         new Clay_basic();
+        new Machines();
         new PotionAffect_Weapons();
         new Golden_things();
         new Skulls();
