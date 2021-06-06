@@ -110,7 +110,6 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         return worldBorderEnabled;
     }
 
-    @SuppressWarnings({"unused", "static-access"})
     @Override
     public void onEnable() {
         plugin = this;
@@ -126,8 +125,8 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         if (highrailspeed == null)
             highrailspeed = "3";
         if (!new File(getDataFolder() + "/" + locale + ".yml").exists()) {
-            Utils.info("§cLoading Error: Locale not found.Disabling plugin..");
-            this.getServer().getPluginManager().disablePlugin(this);
+            Utils.info("§cLoading Error: Locale not found. Use default locale en-US.");
+            locale = "en-US";
         }
         Utils.updateConfig(this, configDYML);
         configDYML.saveCustomConfig();
