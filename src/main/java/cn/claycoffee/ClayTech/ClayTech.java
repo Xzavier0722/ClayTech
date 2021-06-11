@@ -146,14 +146,11 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         defaultLangYML.reloadCustomConfig();
         Lang.init();
         switch (version) {
+            case "v1_17_R1":
             case "v1_16_R3":
-                break;
             case "v1_16_R2":
-                break;
             case "v1_16_R1":
-                break;
             case "v1_15_R1":
-                break;
             case "v1_14_R1":
                 break;
             default:
