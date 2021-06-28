@@ -33,7 +33,7 @@ public class ClayTechUpdater {
                     InputStream in = url.openStream();
                     BufferedReader bf = new BufferedReader(new InputStreamReader(in));
                     JsonArray ja = new JsonParser().parse(bf.readLine()).getAsJsonArray();
-                    String downloadURL = null;
+                    String downloadURL;
                     if (branch == ClayTechBranch.STABLE) {
                         for (int i = 0; i < ja.size(); i++) {
                             if (ja.get(i).getAsJsonObject().get("prerelease").getAsBoolean()) {

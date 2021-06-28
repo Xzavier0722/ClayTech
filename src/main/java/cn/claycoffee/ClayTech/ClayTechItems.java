@@ -420,35 +420,40 @@ public class ClayTechItems {
             Utils.newItemD(Material.CLAY, Lang.readCategoriesText("Basic")),
             new NamespacedKey(SlimefunPlugin.instance(), "basic_machines"));
     public static final LockedCategory C_WEAPONS = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory1"),
+            new NamespacedKey(ClayTech.plugin, "weapons"),
             Utils.newItemD(Material.DIAMOND_SWORD, Lang.readCategoriesText("Weapons")), N_BASIC);
-    public static final LockedCategory C_FOOD = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
+    public static final LockedCategory C_FOOD = new LockedCategory(
+            new NamespacedKey(ClayTech.plugin, "food"),
             Utils.newItemD(Material.ENCHANTED_GOLDEN_APPLE, Lang.readCategoriesText("Food")), N_BASIC);
     public static final LockedCategory C_FOODMATERIALS = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory2"),
+            new NamespacedKey(ClayTech.plugin, "food_materials"),
             Utils.newItemD(Material.COCOA_BEANS, Lang.readCategoriesText("FoodMakings")), N_BASIC);
-    public static final LockedCategory C_DRINK = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
+    public static final LockedCategory C_DRINK = new LockedCategory(
+            new NamespacedKey(ClayTech.plugin, "drinks"),
             Utils.newItemD(Material.WATER_BUCKET, Lang.readCategoriesText("Drink")), N_BASIC);
     public static final LockedCategory C_MATERIALS = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory3"),
+            new NamespacedKey(ClayTech.plugin, "materials"),
             Utils.newItemD(Material.COAL, Lang.readCategoriesText("Makings")), N_BASIC);
-    public static final LockedCategory C_ARMORS = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory"),
+    public static final LockedCategory C_ARMORS = new LockedCategory(
+            new NamespacedKey(ClayTech.plugin, "armors"),
             Utils.newItemD(Material.DIAMOND_CHESTPLATE, Lang.readCategoriesText("Armors")), N_BASIC);
     public static final LockedCategory C_DECORATES = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory4"),
+            new NamespacedKey(ClayTech.plugin, "decorates"),
             Utils.newItemD(Material.PLAYER_HEAD, Lang.readCategoriesText("Decorates")), N_BASIC);
     public static final LockedCategory C_ELEMENTS = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory5"),
+            new NamespacedKey(ClayTech.plugin, "elements"),
             Utils.newItemD(Material.FLOWER_POT, Lang.readCategoriesText("Elements")), N_BASIC);
     public static final LockedCategory C_MACHINES = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory6"),
+            new NamespacedKey(ClayTech.plugin, "machines"),
             Utils.newItemD(Material.FURNACE, Lang.readCategoriesText("Machines")), N_BASIC);
-    public static final LockedCategory C_OTHER = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory7"),
+    public static final LockedCategory C_OTHER = new LockedCategory(
+            new NamespacedKey(ClayTech.plugin, "others"),
             Utils.newItemD(Material.POWERED_RAIL, Lang.readCategoriesText("Other")), N_BASIC);
-    public static final LockedCategory C_TOOLS = new LockedCategory(new NamespacedKey(ClayTech.plugin, "claycategory8"),
+    public static final LockedCategory C_TOOLS = new LockedCategory(
+            new NamespacedKey(ClayTech.plugin, "tools"),
             Utils.newItemD(Material.DIAMOND_PICKAXE, Lang.readCategoriesText("Tools")), N_BASIC);
     public static final LockedCategory C_ORESTHINGS = new LockedCategory(
-            new NamespacedKey(ClayTech.plugin, "claycategory9"),
+            new NamespacedKey(ClayTech.plugin, "ores"),
             Utils.newItemD(Material.BRICK, Lang.readCategoriesText("OreThings")), N_BASIC);
     public static ItemStack HONEY_SWEET = SlimefunPlugin.getMinecraftVersion()
             .isAtLeast(MinecraftVersion.MINECRAFT_1_15)

@@ -124,7 +124,8 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         highrailspeed = config.getString("highrailspeed");
         if (highrailspeed == null)
             highrailspeed = "3";
-        if (!new File(getDataFolder() + "/" + locale + ".yml").exists()) {
+        String langFileName = locale + ".yml";
+        if (!new File(getDataFolder() + "/" + langFileName).exists() && ClayTech.getInstance().getResource(langFileName) == null) {
             Utils.info("§cLoading Error: Locale not found. Use default locale en-US.");
             locale = "en-US";
         }
@@ -132,7 +133,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         configDYML.saveCustomConfig();
         configDYML.reloadCustomConfig();
         overworld = config.getString("overworld");
-        currentLangYML = new DataYML(locale + ".yml");
+        currentLangYML = new DataYML(langFileName);
         currentLangYML.saveCDefaultConfig();
         currentLangYML.reloadCustomConfig();
         currentLang = currentLangYML.getCustomConfig();
@@ -306,12 +307,10 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         if (ClayTech.getInstance().getConfig().getBoolean("replace-when-server-stops")) {
             if (ClayTechData.jarLocation != null & ClayTechData.updateJar != null) {
                 try {
-                    FileOutputStream os = new FileOutputStream(new File(ClayTechData.jarLocation));
+                    FileOutputStream os = new FileOutputStream(ClayTechData.jarLocation);
                     os.write(ClayTechData.updateJar);
                     os.close();
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
