@@ -125,7 +125,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         if (highrailspeed == null)
             highrailspeed = "3";
         String langFileName = locale + ".yml";
-        if (!new File(getDataFolder() + "/" + langFileName).exists() && ClayTech.getInstance().getResource(langFileName) == null) {
+        if (!new File(getDataFolder() + "/" + langFileName).exists() && getResource(langFileName) == null) {
             Utils.info("§cLoading Error: Locale not found. Use default locale en-US.");
             locale = "en-US";
         }
