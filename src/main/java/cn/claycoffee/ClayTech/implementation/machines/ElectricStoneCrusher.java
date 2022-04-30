@@ -2,15 +2,15 @@ package cn.claycoffee.ClayTech.implementation.machines;
 
 import cn.claycoffee.ClayTech.implementation.abstractMachines.ANewContainer;
 import cn.claycoffee.ClayTech.utils.Lang;
-import io.github.thebusybiscuit.slimefun4.core.categories.LockedCategory;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class ElectricStoneCrusher extends ANewContainer {
 
-    public ElectricStoneCrusher(LockedCategory category, SlimefunItemStack item, String id, RecipeType recipeType,
+    public ElectricStoneCrusher(LockedItemGroup category, SlimefunItemStack item, String id, RecipeType recipeType,
                                 ItemStack[] recipe) {
         super(category, item, id, recipeType, recipe);
     }

@@ -9,10 +9,8 @@ import cn.claycoffee.ClayTech.implementation.items.*;
 import cn.claycoffee.ClayTech.implementation.resources.ClayFuel;
 import cn.claycoffee.ClayTech.listeners.*;
 import cn.claycoffee.ClayTech.utils.*;
-import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -23,7 +21,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -147,6 +144,7 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
         defaultLangYML.reloadCustomConfig();
         Lang.init();
         switch (version) {
+            case "v1_18_R2":
             case "v1_17_R1":
             case "v1_16_R3":
             case "v1_16_R2":
@@ -158,13 +156,11 @@ public class ClayTech extends JavaPlugin implements SlimefunAddon {
                 compatible = false;
                 break;
         }
+        compatible = true; //disable compatibility check
         if (!compatible) {
             Utils.info(Lang.readGeneralText("Not_compatible"));
             this.getServer().getPluginManager().disablePlugin(this);
             return;
-        }
-        if (!SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_15)) {
-            Utils.info(Lang.readGeneralText("Before_115"));
         }
         Metrics mt = new Metrics(this, 6887);
         mt.addCustomChart(new Metrics.SimplePie("language", () -> languageCodeToLanguage(locale)));

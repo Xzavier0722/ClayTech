@@ -7,10 +7,10 @@ import cn.claycoffee.ClayTech.ClayTechRecipeType;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Slimefunutils;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -20,7 +20,7 @@ public class FoodMakingStaff {
         ItemStack[] recipec = {null, new ItemStack(Material.BREAD), null, null, ClayTechItems.MAGIC_CLAY, null, null,
                 new ItemStack(Material.BREAD), null};
         ItemStack[] reciped = {null, new ItemStack(Material.KELP), null, null, ClayTechItems.MAGIC_CLAY, null, null,
-                SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
+                Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
                         ? new ItemStack(Material.BAMBOO)
                         : new ItemStack(Material.KELP),
                 null};

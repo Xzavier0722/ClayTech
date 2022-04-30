@@ -4,23 +4,23 @@ import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Utils;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu.AdvancedMenuClickHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ClickAction;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.interfaces.InventoryBlock;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Material;
@@ -53,7 +53,7 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
     protected final List<MachineRecipe> recipes = new ArrayList<>();
     SlimefunItemStack items;
 
-    public AExtracter(Category category, SlimefunItemStack item, String id, RecipeType recipeType, ItemStack[] recipe) {
+    public AExtracter(LockedItemGroup category, SlimefunItemStack item, String id, RecipeType recipeType, ItemStack[] recipe) {
 
         super(category, item, recipeType, recipe);
 
@@ -129,7 +129,7 @@ public abstract class AExtracter extends SlimefunItem implements InventoryBlock,
                 ChestMenuUtils.getEmptyClickHandler());
         Preset.addItem(5, BORDER_ITEM, ChestMenuUtils.getEmptyClickHandler());
         Preset.addItem(31,
-                Utils.newItemD(SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
+                Utils.newItemD(Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
                         ? Material.OAK_SIGN
                         : Material.LEGACY_SIGN, Lang.readMachinesText("ELEMENT_UNIT_DOWN")),
                 ChestMenuUtils.getEmptyClickHandler());
