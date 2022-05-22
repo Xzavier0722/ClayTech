@@ -3,9 +3,9 @@ package cn.claycoffee.ClayTech.implementation.items;
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.implementation.machines.*;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 

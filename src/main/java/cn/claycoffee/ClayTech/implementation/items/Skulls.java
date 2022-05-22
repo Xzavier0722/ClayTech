@@ -5,10 +5,10 @@ import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Slimefunutils;
 import io.github.thebusybiscuit.slimefun4.api.MinecraftVersion;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
@@ -28,7 +28,7 @@ public class Skulls {
                 new ItemStack(Material.IRON_BLOCK), ClayTechItems.ARTIFICIAL_GOLD_NUGGET, ClayTechItems.CLAY_STICK,
                 ClayTechItems.ARTIFICIAL_GOLD_NUGGET, new ItemStack(Material.IRON_BLOCK),
                 new ItemStack(Material.GOLD_BLOCK), new ItemStack(Material.IRON_BLOCK)};
-        ItemStack[] ClockRecipe = SlimefunPlugin.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
+        ItemStack[] ClockRecipe = Slimefun.getMinecraftVersion().isAtLeast(MinecraftVersion.MINECRAFT_1_14)
                 ? new ItemStack[]{new ItemStack(Material.IRON_INGOT), new ItemStack(Material.IRON_INGOT),
                 new ItemStack(Material.IRON_INGOT), new ItemStack(Material.IRON_INGOT),
                 ClayTechItems.MAGIC_CLAY, new ItemStack(Material.IRON_INGOT),

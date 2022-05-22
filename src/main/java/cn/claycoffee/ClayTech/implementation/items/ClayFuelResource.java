@@ -2,7 +2,7 @@ package cn.claycoffee.ClayTech.implementation.items;
 
 import cn.claycoffee.ClayTech.ClayTechItems;
 import cn.claycoffee.ClayTech.utils.Slimefunutils;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 
 public class ClayFuelResource {
     public ClayFuelResource() {

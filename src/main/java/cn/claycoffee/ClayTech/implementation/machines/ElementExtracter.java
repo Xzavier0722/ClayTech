@@ -6,13 +6,13 @@ import cn.claycoffee.ClayTech.api.events.PlayerExtractElementEvent;
 import cn.claycoffee.ClayTech.implementation.abstractMachines.AExtracter;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Utils;
-import io.github.thebusybiscuit.slimefun4.core.categories.LockedCategory;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.groups.LockedItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -27,7 +27,7 @@ public class ElementExtracter extends AExtracter {
     private static Map<Block, ItemStack[]> inputItem = new HashMap<>();
     private static Map<Block, ItemStack> outputItem = new HashMap<>();
 
-    public ElementExtracter(LockedCategory category, SlimefunItemStack item, String id, RecipeType recipeType,
+    public ElementExtracter(LockedItemGroup category, SlimefunItemStack item, String id, RecipeType recipeType,
                             ItemStack[] recipe) {
         super(category, item, id, recipeType, recipe);
     }

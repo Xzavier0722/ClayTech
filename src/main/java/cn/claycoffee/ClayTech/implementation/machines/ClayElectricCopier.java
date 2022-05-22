@@ -2,14 +2,14 @@ package cn.claycoffee.ClayTech.implementation.machines;
 
 import cn.claycoffee.ClayTech.implementation.abstractMachines.ANewContainer;
 import cn.claycoffee.ClayTech.utils.Lang;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
@@ -31,8 +31,7 @@ public class ClayElectricCopier extends ANewContainer {
     private static Map<Block, ItemStack> source = new HashMap<>();
     private static Map<Block, ItemStack> copy = new HashMap<>();
 
-    public ClayElectricCopier(Category category, SlimefunItemStack item, String id, RecipeType recipeType,
-                              ItemStack[] recipe) {
+    public ClayElectricCopier(ItemGroup category, SlimefunItemStack item, String id, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, id, recipeType, recipe);
     }
 
@@ -85,7 +84,7 @@ public class ClayElectricCopier extends ANewContainer {
                 if (inv.getItemInSlot(getOutputSlots()[0]) != null || inv.getItemInSlot(getOutputSlots()[1]) != null)
                     return;
 
-                inv.replaceExistingItem(22, new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " "));
+                inv.replaceExistingItem(22, new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE, " "));
 
                 if (mode == 1) {
                     inv.pushItem(source.get(b), getOutputSlots());

@@ -6,8 +6,8 @@ import cn.claycoffee.ClayTech.ClayTechMachineRecipes;
 import cn.claycoffee.ClayTech.ClayTechRecipeType;
 import cn.claycoffee.ClayTech.utils.Lang;
 import cn.claycoffee.ClayTech.utils.Slimefunutils;
-import io.github.thebusybiscuit.slimefun4.core.researching.Research;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import org.bukkit.NamespacedKey;
 
 public class RocketMakings {

@@ -3,13 +3,13 @@ package cn.claycoffee.ClayTech.utils;
 import cn.claycoffee.ClayTech.ClayTech;
 import cn.claycoffee.ClayTech.ClayTechItems;
 import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.Objects.handlers.ItemHandler;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemHandler;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -21,14 +21,14 @@ import java.util.List;
 
 public class Slimefunutils {
 
-    public static void registerItem(Category category, String name, ItemStack ItemStack, String ResearchName, int cost,
+    public static void registerItem(ItemGroup category, String name, ItemStack ItemStack, String ResearchName, int cost,
                                     RecipeType Recipetype, ItemStack[] RecipeStack, boolean registerResearch) {
         SlimefunItemStack items = new SlimefunItemStack(name, ItemStack);
         SlimefunItem item = new SlimefunItem(category, items, Recipetype, RecipeStack);
         item.register(ClayTech.getInstance());
     }
 
-    public static void registerItem(Category category, String name, ItemStack ItemStack, String ResearchName, int cost,
+    public static void registerItem(ItemGroup category, String name, ItemStack ItemStack, String ResearchName, int cost,
                                     RecipeType Recipetype, ItemStack[] RecipeStack, boolean registerResearch, ItemHandler[] handler) {
         SlimefunItemStack items = new SlimefunItemStack(name, ItemStack);
         SlimefunItem item = new SlimefunItem(category, items, Recipetype, RecipeStack);
@@ -36,7 +36,7 @@ public class Slimefunutils {
         item.register(ClayTech.getInstance());
     }
 
-    public static void registerArmors(Category category, String nameprefix, ItemStack[] ItemStack, String ResearchName,
+    public static void registerArmors(ItemGroup category, String nameprefix, ItemStack[] ItemStack, String ResearchName,
                                       int cost, RecipeType Recipetype, ItemStack MaterialStack, boolean registerResearch) {
 
         SlimefunItemStack HELMET = new SlimefunItemStack(nameprefix + "_HELMET", ItemStack[0]);
@@ -70,7 +70,7 @@ public class Slimefunutils {
 
     public static void registerResource(GEOResource res) {
         res.register();
-        SlimefunPlugin.getRegistry().getGEOResources().add(res);
+        Slimefun.getRegistry().getGEOResources().add(res);
     }
 
     public static void doAirlock(Block plate, BlockFace face) {
